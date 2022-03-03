@@ -14,5 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view("home");
+});
+
+Route::get('/pasien', function () {
+    return view("pasien", [
+        "no_reg" => 20220303213645,
+        "no_rm" => 204563,
+        "nama" => "YUYUN"
+    ]);
+});
+
+Route::get('/dokter', function () {
+    return view("dokter");
 });

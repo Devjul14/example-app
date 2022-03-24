@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\PelayananController;
+use App\Models\Pelayanan;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,11 +32,9 @@ Route::get('/profil', function () {
 });
 
 Route::get('/fasilitas', function () {
-    return view("fasilitas");
-});
-
-Route::get('/layanan', function () {
-    return view("layanan", [
-        "title" => "Layanan"
+    return view("fasilitas", [
+        "title" => "Fasilitas"
     ]);
 });
+
+Route::get('/layanan', [PelayananController::class, 'index']);

@@ -8,16 +8,8 @@
             <li class="nav-item {{ ($title === "Profil" ? "active" : "") }}">
               <a class="nav-link" href="/profil">Profil</a>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="/fasilitas" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Fasilitas
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
+            <li class="nav-item {{ ($title === "Fasilitas" ? "active" : "") }}">
+              <a class="nav-link" href="/fasilitas">Fasilitas</a>
             </li>
             <li class="nav-item dropdown {{ ($title === "Layanan" ? "active" : "") }}">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

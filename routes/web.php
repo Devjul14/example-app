@@ -14,17 +14,26 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view("home");
+    return view("home", [
+        "title" => "Home"
+    ]);
 });
 
-Route::get('/pasien', function () {
-    return view("pasien", [
+Route::get('/profil', function () {
+    return view("profil", [
+        "title" => "Profil",
         "no_reg" => 20220303213645,
         "no_rm" => 204563,
         "nama" => "YUYUN"
     ]);
 });
 
-Route::get('/dokter', function () {
-    return view("dokter");
+Route::get('/fasilitas', function () {
+    return view("fasilitas");
+});
+
+Route::get('/layanan', function () {
+    return view("layanan", [
+        "title" => "Layanan"
+    ]);
 });

@@ -1,5 +1,6 @@
 @extends('layouts.index')
 
 @section('container')
-    <h1>Ini Home</h1>
+<h1>Ini Layanan</h1>
 @endsection
+    

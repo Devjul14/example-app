@@ -11,8 +11,13 @@ class Pasien extends Model
 
     protected $guarded = ['id'];
 
-    public function status()
+    public function golongan()
     {
-        return $this->belongsTo(Status_pasien::class);
+        return $this->belongsTo(Golongan::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

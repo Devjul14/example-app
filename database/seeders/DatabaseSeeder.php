@@ -6,6 +6,9 @@ use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Pasien;
 use App\Models\Golongan;
+use App\Models\Book;
+use App\Models\Category;
+use App\Models\Author;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,13 +19,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        User::factory(5)->create();
 
-        User::create([
-            'name' => 'Julia',
-            'email' => 'eka47577@gmail.com',
-            'password' => bcrypt('9090')
-        ]);
+        // User::create([
+        //     'name' => 'Julia',
+        //     'email' => 'eka47577@gmail.com',
+        //     'password' => bcrypt('9090')
+        // ]);
 
         Golongan::create([
             'nama' => 'Tunai'
@@ -30,30 +33,22 @@ class DatabaseSeeder extends Seeder
         Golongan::create([
             'nama' => 'BPJS Umum'
         ]);
+        Golongan::create([
+            'nama' => 'BPJS Perusahaan'
+        ]);
 
-        Pasien::create([
-            'golongan_id' => 1,
-            'user_id' => 1,
-            'reg' => '20220415141011',
-            'nama' => 'Salmanan',
-            'alamat' => 'Bandung',
-            'nohp' => '087710085325'
+        Category::create([
+            'nama' => 'Fiksi'
         ]);
-        Pasien::create([
-            'golongan_id' => 1,
-            'user_id' => 1,
-            'reg' => '20220415141011',
-            'nama' => 'Salmanan',
-            'alamat' => 'Bandung',
-            'nohp' => '087710085325'
+        Category::create([
+            'nama' => 'Filosifi'
         ]);
-        Pasien::create([
-            'golongan_id' => 2,
-            'user_id' => 1,
-            'reg' => '20220415141011',
-            'nama' => 'Salmanan',
-            'alamat' => 'Bandung',
-            'nohp' => '087710085325'
+        Category::create([
+            'nama' => 'Komik'
         ]);
+
+        Pasien::factory(58)->create();
+        Book::factory(25)->create();
+        Author::factory(5)->create();
     }
 }

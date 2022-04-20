@@ -4,6 +4,8 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\PelayananController;
 use App\Http\Controllers\CategoryController;
 use App\Models\Pelayanan;
+use App\Models\Book;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 
@@ -41,5 +43,8 @@ Route::get('/fasilitas', function () {
 
 Route::get('/layanan', [PelayananController::class, 'index']);
 Route::get('/categories', [CategoryController::class, 'index']);
+Route::get('/categories/{category:nama}', [CategoryController::class, 'show']);
 Route::get('/book', [BookController::class, 'index']);
-Route::get('/book/{judul}', [BookController::class, 'show']);
+Route::get('/book/{slug}', [BookController::class, 'show']);
+Route::get('/authors', [CategoryController::class, 'index']);
+// Route::get('/authors/{category:nama}', [CategoryController::class, 'show']);

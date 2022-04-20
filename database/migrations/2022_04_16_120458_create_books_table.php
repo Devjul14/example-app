@@ -18,6 +18,7 @@ class CreateBooksTable extends Migration
             $table->string('category_id');
             // $table->string('author_id');
             $table->string('judul');
+            $table->string('slug');
             $table->text('sinopsis');
             $table->timestamps();
         });

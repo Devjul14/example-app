@@ -19,7 +19,7 @@ class CategoryController extends Controller
     {
         return view('/books', [
             "title" => "Category Books",
-            "books" => $category->books->load(['author', 'category'])
+            "books" => $category
         ]);
     }
 }

@@ -9,7 +9,7 @@ class AuthorController extends Controller
 {
     public function index()
     {
-        return view('author', [
+        return view('books', [
             "title" => "Author",
             "authors" => Author::all()
         ]);
@@ -17,9 +17,9 @@ class AuthorController extends Controller
 
     public function show(Author $author)
     {
-        return view('author', [
-            "title" => $author->name,
-            "books" => $author->books->load(['author', 'category'])
+        return view('books', [
+            "title" => "Author By : $author->name",
+            "books" => $author->books->load('category', 'author'),
         ]);
     }
 }

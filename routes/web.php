@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\PelayananController;
 use App\Http\Controllers\CategoryController;
@@ -43,8 +44,8 @@ Route::get('/fasilitas', function () {
 
 Route::get('/layanan', [PelayananController::class, 'index']);
 Route::get('/categories', [CategoryController::class, 'index']);
-Route::get('/categories/{category:slug}', [CategoryController::class, 'show']);
+Route::get('/categories/{category:nama}', [CategoryController::class, 'show']);
 Route::get('/book', [BookController::class, 'index']);
 Route::get('/book/{book:slug}', [BookController::class, 'show']);
-Route::get('/authors', [CategoryController::class, 'index']);
+Route::get('/authors/{author:username}', [AuthorController::class, 'show']);
 // Route::get('/authors/{category:nama}', [CategoryController::class, 'show']);

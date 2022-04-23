@@ -27,31 +27,31 @@ class DatabaseSeeder extends Seeder
         //     'password' => bcrypt('9090')
         // ]);
 
-        Golongan::create([
-            'nama' => 'Tunai'
-        ]);
-        Golongan::create([
-            'nama' => 'BPJS Umum'
-        ]);
-        Golongan::create([
-            'nama' => 'BPJS Perusahaan'
-        ]);
+        // Golongan::create([
+        //     'nama' => 'Tunai'
+        // ]);
+        // Golongan::create([
+        //     'nama' => 'BPJS Umum'
+        // ]);
+        // Golongan::create([
+        //     'nama' => 'BPJS Perusahaan'
+        // ]);
 
-        Category::create([
-            'nama' => 'Fiksi',
-            'slug' => 00001
-        ]);
-        Category::create([
-            'nama' => 'Filosifi',
-            'slug' => 00002
-        ]);
-        Category::create([
-            'nama' => 'Komik',
-            'slug' => 00003
-        ]);
+        // Category::create([
+        //     'nama' => 'Fiksi',
+        //     'slug' => 00001
+        // ]);
+        // Category::create([
+        //     'nama' => 'Filosifi',
+        //     'slug' => 00002
+        // ]);
+        // Category::create([
+        //     'nama' => 'Komik',
+        //     'slug' => 00003
+        // ]);
 
-        Pasien::factory(58)->create();
-        Book::factory(25)->create();
-        Author::factory(5)->create();
+        // Pasien::factory(5)->create();
+        Book::factory(2000)->create();
+        // Author::factory(5)->create();
     }
 }

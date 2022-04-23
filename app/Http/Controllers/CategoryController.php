@@ -17,10 +17,9 @@ class CategoryController extends Controller
 
     public function show(Category $category)
     {
-        return view('/vcategory', [
-            "title" => "Category Books",
-            "books" => $category->books,
-            "category" => $category->nama,
+        return view('/books', [
+            "title" => "Category By : $category->nama",
+            "books" => $category->books->load('author', 'category')
         ]);
     }
 }

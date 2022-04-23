@@ -43,8 +43,8 @@ Route::get('/fasilitas', function () {
 
 Route::get('/layanan', [PelayananController::class, 'index']);
 Route::get('/categories', [CategoryController::class, 'index']);
-Route::get('/categories/{category:nama}', [CategoryController::class, 'show']);
+Route::get('/categories/{category:slug}', [CategoryController::class, 'show']);
 Route::get('/book', [BookController::class, 'index']);
-Route::get('/book/{slug}', [BookController::class, 'show']);
+Route::get('/book/{book:slug}', [BookController::class, 'show']);
 Route::get('/authors', [CategoryController::class, 'index']);
 // Route::get('/authors/{category:nama}', [CategoryController::class, 'show']);

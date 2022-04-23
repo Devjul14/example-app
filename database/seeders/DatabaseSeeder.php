@@ -38,13 +38,16 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Category::create([
-            'nama' => 'Fiksi'
+            'nama' => 'Fiksi',
+            'slug' => 00001
         ]);
         Category::create([
-            'nama' => 'Filosifi'
+            'nama' => 'Filosifi',
+            'slug' => 00002
         ]);
         Category::create([
-            'nama' => 'Komik'
+            'nama' => 'Komik',
+            'slug' => 00003
         ]);
 
         Pasien::factory(58)->create();

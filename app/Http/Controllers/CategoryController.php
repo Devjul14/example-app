@@ -17,9 +17,10 @@ class CategoryController extends Controller
 
     public function show(Category $category)
     {
-        return view('/books', [
+        return view('/vcategory', [
             "title" => "Category Books",
-            "books" => $category
+            "books" => $category->books,
+            "category" => $category->nama,
         ]);
     }
 }

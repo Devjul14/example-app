@@ -17,7 +17,7 @@ class BookFactory extends Factory
             'category_id' => mt_rand(1, 3),
             'judul' => $this->faker->sentence(3),
             'slug' => $this->faker->sentence(3),
-            'sinopsis' => $this->faker->paragraph(3),
+            'sinopsis' => $this->faker->paragraph(7),
         ];
     }
 }

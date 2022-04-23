@@ -19,7 +19,7 @@ class BookController extends Controller
     {
         return view('book', [
             "title" => "Single Book",
-            "books" => $book,
+            "book" => $book,
         ]);
     }
 }

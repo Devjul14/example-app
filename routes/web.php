@@ -23,7 +23,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view("home", [
-        "title" => "Home"
+        "title" => "Home",
+        "active" => "home"
     ]);
 });
 

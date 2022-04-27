@@ -37,21 +37,21 @@ class DatabaseSeeder extends Seeder
         //     'nama' => 'BPJS Perusahaan'
         // ]);
 
-        // Category::create([
-        //     'nama' => 'Fiksi',
-        //     'slug' => 00001
-        // ]);
-        // Category::create([
-        //     'nama' => 'Filosifi',
-        //     'slug' => 00002
-        // ]);
-        // Category::create([
-        //     'nama' => 'Komik',
-        //     'slug' => 00003
-        // ]);
+        Category::create([
+            'nama' => 'Food',
+            'slug' => 00001
+        ]);
+        Category::create([
+            'nama' => 'Computer',
+            'slug' => 00002
+        ]);
+        Category::create([
+            'nama' => 'Programming',
+            'slug' => 00003
+        ]);
 
         // Pasien::factory(5)->create();
-        Book::factory(2000)->create();
-        // Author::factory(5)->create();
+        Book::factory(20)->create();
+        Author::factory(5)->create();
     }
 }

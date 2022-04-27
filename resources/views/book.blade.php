@@ -6,14 +6,16 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <h2>{{ $title }} </h2>
-
-            <h4>{{ $book->judul }}</h4>
+            <h4 class="mb-3">{{ $book->judul }}</h4>
             <p>
                 By. <a href="/authors/{{ $book->author->username }}" class="text-decoration-none">{{ $book->author->name }}</a>
                 In <a href="/categories/{{ $book->category->nama }}" class="text-decoration-none">{{ $book->category->nama }}</a>
             </p>
+            <img src="https://source.unsplash.com/800x400?{{ $book->category->nama }}" alt="{{ $book->category->nama }}" class="img-fluid">
+
+            <article class="my-3 fs-5">
             <p>{{ $book->sinopsis }}</p>
+            </article>
 
             <a href="/book">Back</a>
         </div>

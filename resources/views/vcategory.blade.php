@@ -1,18 +1,23 @@
 @extends('layouts/index')
 
 @section('container')
-<h1 class="mb-5">Book Category : {{ $category }}</h1>
+<h1 class="mb-5">Book Category : </h1>
 
-@foreach ($books as $item)
-<article class="mb-5 border-bottom pb-4">
-    <h2><a href="/book/{{ $item->slug }}" class="text-decoration-none">{{ $item->judul }}</a></h2>
-
-    {{-- <p>By. <a href="/authors/{{ $item->authors->username }}" class="text-decoration-none">{{ $item->author->name }}</a> --}}
-    in <a href="/categories/{{ $item->category->nama }}" class="text-decoration-none">{{ $item->category->nama }}</a></p>    
-
-    <p>{{ $item->sinopsis }}</p>
-</article>
-    
-@endforeach
+<div class="container">
+    <div class="row">
+        @foreach ($categories as $item)
+        <div class="col-md-4 mb-3">
+            <a href="/categories/{{ $item->nama }}">
+            <div class="card bg-dark text-white">
+                <img src="https://source.unsplash.com/500x500?{{ $item->nama }}" class="card-img" alt="{{ $item->nama }}">
+                <div class="card-img-overlay d-flex align-items-center p-0">
+                  <h5 class="card-title text-center flex-fill p-4 fs-3" style="background-color: rgba(0,0,0,0.7)">{{ $item->nama }}</h5>
+                  </div>
+              </div>
+            </a>
+        </div>
+        @endforeach        
+    </div>
+</div>
     
 @endsection

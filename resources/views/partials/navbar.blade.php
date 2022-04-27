@@ -6,16 +6,16 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item {{ ($title === "Home" ? "active" : "") }}">
+      <li class="nav-item {{ ($active === "home" ? "active" : "") }}">
         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item {{ ($title === "Book" ? "active" : "") }}">
+      <li class="nav-item {{ ($active === "book" ? "active" : "") }}">
         <a class="nav-link" href="/book">Book</a>
       </li>
-      <li class="nav-item {{ ($title === "Categories" ? "active" : "") }}">
+      <li class="nav-item {{ ($active === "categories" ? "active" : "") }}">
         <a class="nav-link" href="/categories">Categories</a>
       </li>
-      <li class="nav-item {{ ($title === "Author" ? "active" : "") }}">
+      <li class="nav-item {{ ($active === "author" ? "active" : "") }}">
         <a class="nav-link" href="/author">Author</a>
       </li>
       {{-- <li class="nav-item dropdown">

@@ -9,8 +9,9 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        return view('/books', [
+        return view('/vcategory', [
             "title" => "Category Books",
+            "active" => "categories",
             "categories" => Category::all(),
         ]);
     }
@@ -19,6 +20,7 @@ class CategoryController extends Controller
     {
         return view('/books', [
             "title" => "Category By : $category->nama",
+            "active" => "categories",
             "books" => $category->books->load('author', 'category')
         ]);
     }

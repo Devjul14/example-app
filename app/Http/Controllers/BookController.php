@@ -11,7 +11,8 @@ class BookController extends Controller
     {
         return view('books', [
             "title" => "All Books",
-            "books" => Book::with(['author', 'category'])->latest()->get(),
+            "active" => "book",
+            "books" => Book::latest()->get(),
         ]);
     }
 
@@ -19,6 +20,7 @@ class BookController extends Controller
     {
         return view('book', [
             "title" => "Single Book",
+            "active" => "book",
             "book" => $book,
         ]);
     }

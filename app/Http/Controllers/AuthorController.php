@@ -11,6 +11,7 @@ class AuthorController extends Controller
     {
         return view('books', [
             "title" => "Author",
+            "active" => "author",
             "authors" => Author::all()
         ]);
     }
@@ -19,6 +20,7 @@ class AuthorController extends Controller
     {
         return view('books', [
             "title" => "Author By : $author->name",
+            "active" => "author",
             "books" => $author->books->load('category', 'author'),
         ]);
     }

@@ -38,20 +38,20 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         Category::create([
-            'nama' => 'Food',
-            'slug' => 00001
+            'nama' => 'Web Design',
+            'slug' => 1
         ]);
         Category::create([
-            'nama' => 'Computer',
-            'slug' => 00002
+            'nama' => 'IT Network',
+            'slug' => 2
         ]);
         Category::create([
             'nama' => 'Programming',
-            'slug' => 00003
+            'slug' => 3
         ]);
 
         // Pasien::factory(5)->create();
-        Book::factory(20)->create();
+        Book::factory(50)->create();
         Author::factory(5)->create();
     }
 }

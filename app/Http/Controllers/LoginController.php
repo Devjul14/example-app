@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -16,11 +17,11 @@ class LoginController extends Controller
 
     public function authenticate(Request $request)
     {
-        $validateData = $request->validate([
-            'name' => 'required|max:255',
-            'username' => 'required|min:5|max:255|unique:authors',
-            'email' => 'required|email:dns|unique:authors',
+        $request->validate([
+            'username' => 'required|min:5|max:255',
             'password' => 'required|min:8|max:255'
         ]);
+
+        dd('berhasil login!');
     }
 }

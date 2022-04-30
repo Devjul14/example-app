@@ -1,13 +1,15 @@
 <?php
 
-use App\Http\Controllers\AuthorController;
-use App\Http\Controllers\BookController;
-use App\Http\Controllers\PelayananController;
-use App\Http\Controllers\CategoryController;
-use App\Models\Pelayanan;
 use App\Models\Book;
 use App\Models\Category;
+use App\Models\Pelayanan;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\PelayananController;
 
 
 /*
@@ -50,3 +52,8 @@ Route::get('/book', [BookController::class, 'index']);
 Route::get('/book/{book:slug}', [BookController::class, 'show']);
 Route::get('/authors/{author:username}', [AuthorController::class, 'show']);
 // Route::get('/authors/{category:nama}', [CategoryController::class, 'show']);
+
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'store']);

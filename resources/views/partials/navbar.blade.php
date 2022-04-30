@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand" href="#"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -17,6 +17,11 @@
       </li>
       <li class="nav-item {{ ($active === "author" ? "active" : "") }}">
         <a class="nav-link" href="/author">Author</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item {{ ($active === "login" ? "active" : "") }}">
+        <a href="/login" class="nav-link"><i class="fa-solid fa-arrow-right-to-bracket"></i> Sign In</a>
       </li>
     </ul>
   </div>

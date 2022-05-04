@@ -19,7 +19,7 @@ class LoginController extends Controller
     {
         $request->validate([
             'username' => 'required|min:5|max:255',
-            'password' => 'required|min:8|max:255'
+            'password' => 'required'
         ]);
 
         dd('berhasil login!');

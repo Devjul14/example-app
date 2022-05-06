@@ -1,8 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
-  <a class="navbar-brand" href="#"></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <div class="container-fluid">
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -19,10 +16,30 @@
         <a class="nav-link" href="/author">Author</a>
       </li>
     </ul>
+
     <ul class="navbar-nav ms-auto">
-      <li class="nav-item {{ ($active === "login" ? "active" : "") }}">
-        <a href="/login" class="nav-link"><i class="fa-solid fa-arrow-right-to-bracket"></i> Sign In</a>
+      @auth
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Welcome back, {{ auth()->user()->name }}
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-layout-text-sidebar-reverse"></i> My Dashboard</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li>
+            <form action="/logout" method="post">
+              @csrf
+              <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-in-right"></i> Logout</button>
+            </form>
+        </ul>
       </li>
+      @else
+      <li class="nav-item {{ ($active === "login" ? "active" : "") }}">
+        <a href="/login" class="nav-link"><i class="bi bi-box-arrow-in-right"></i> Sign In</a>
+      </li>
+      @endauth
     </ul>
+    
+  </div>
   </div>
 </nav>

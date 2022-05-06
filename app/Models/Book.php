@@ -10,7 +10,7 @@ class Book extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
-    protected $with = ['author', 'category'];
+    protected $with = ['user', 'category'];
 
     public function scopeFilter($query, array $filters)
     {
@@ -27,14 +27,14 @@ class Book extends Model
             });
         });
 
-        //ini query mencari book author arrow function
+        //ini query mencari book user arrow function
         $query->when(
-            $filters['author'] ?? false,
-            fn ($query, $author) =>
+            $filters['user'] ?? false,
+            fn ($query, $user) =>
             $query->whereHas(
-                'author',
+                'user',
                 fn ($query) =>
-                $query->where('username', $author)
+                $query->where('username', $user)
             )
         );
     }
@@ -47,5 +47,14 @@ class Book extends Model
     public function author()
     {
         return $this->belongsTo(Author::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }

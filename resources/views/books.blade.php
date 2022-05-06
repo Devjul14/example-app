@@ -9,8 +9,8 @@
       @if (request('category'))
           <input type="hidden" name="category" value="{{ request('category') }}">
       @endif
-      @if (request('author'))
-          <input type="hidden" name="author" value="{{ request('author') }}">
+      @if (request('user'))
+          <input type="hidden" name="user" value="{{ request('user') }}">
       @endif
       <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Search.." name="search" value="{{ request('search') }}" autocomplete="off">
@@ -24,9 +24,9 @@
 <div class="card mb-4">
     <img src="https://source.unsplash.com/700x200?{{ $books[0]->category->nama }}" class="card-img-top" alt="{{ $books[0]->category->nama }}">
     <div class="card-body text-center">
-      <h3 class="card-title"><a href="/book/{{ $books[0]->slug }}" class="text-decoration-none text-dark">{{ $books[0]->judul }}</a></h3>
+      <h3 class="card-title"><a href="/book/{{ $books[0]->slug }}" class="text-decoration-none text-dark">{{ $books[0]->title }}</a></h3>
       <p><small class="text-muted">
-          By. <a href="/book?author={{ $books[0]->author->username }}" class="text-decoration-none">{{ $books[0]->author->name }}</a>
+          By. <a href="/book?user={{ $books[0]->user->username }}" class="text-decoration-none">{{ $books[0]->user->name }}</a>
         in <a href="/book?category={{ $books[0]->category->slug }}" class="text-decoration-none">{{ $books[0]->category->nama }}</a> {{ $books[0]->created_at->diffForHumans() }}
     </small></p>    
 
@@ -45,9 +45,9 @@
             <div class="card" >
                 <img src="https://source.unsplash.com/500x400?{{ $item->category->nama }}" class="card-img-top" alt="{{ $item->category->nama }}">
                 <div class="card-body">
-                    <h5 class="card-title">{{ $item->judul }}</h5>
+                    <h5 class="card-title">{{ $item->title }}</h5>
                     <p><small class="text-muted">
-                        By. <a href="/book?author={{ $item->author->username }}" class="text-decoration-none">{{ $item->author->name }}</a> 
+                        By. <a href="/book?user={{ $item->user->username }}" class="text-decoration-none">{{ $item->user->name }}</a> 
                         in <a href="/book?category={{ $item->category->slug }}" class="text-decoration-none">{{ $item->category->nama }}</a> {{ $item->created_at->diffForHumans() }}
                   </small></p>    
                     <p class="card-text">{{ $item->sinopsis }}</p>

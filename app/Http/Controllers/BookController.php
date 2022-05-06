@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Author;
+use App\Models\User;
 use App\Models\Book;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -16,14 +16,14 @@ class BookController extends Controller
             $category = Category::firstWhere('slug', request('category'));
             $title = ' in ' . $category->nama;
         }
-        if (request('author')) {
-            $author = Author::firstWhere('username', request('author'));
-            $title = ' by ' . $author->name;
+        if (request('user')) {
+            $user = User::firstWhere('username', request('user'));
+            $title = ' by ' . $user->name;
         }
         return view('books', [
             "title" => "All Books" . $title,
             "active" => "book",
-            "books" => Book::latest()->filter(request(['search', 'category', 'author']))->paginate(7)->withQueryString()
+            "books" => Book::latest()->filter(request(['search', 'category', 'user']))->paginate(7)->withQueryString()
         ]);
     }
 

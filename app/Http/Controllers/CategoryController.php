@@ -21,7 +21,7 @@ class CategoryController extends Controller
         return view('/books', [
             "title" => "Category By : $category->nama",
             "active" => "categories",
-            "books" => $category->books->load('author', 'category')
+            "books" => $category->books->load('user', 'category')
         ]);
     }
 }

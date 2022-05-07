@@ -15,7 +15,7 @@
             </article>
 
             
-            <a href="/dashboard/books" class="btn btn-info"><span data-feather="arrow-left"></span> Back to Books</a>
+            <a href="/dashboard/books" class="btn btn-info"><span data-feather="arrow-left"></span> Back to Your Books</a>
             <a href="" class="btn btn-warning"><span data-feather="edit"></span> Edit</a>
             <a href="" class="btn btn-danger"><span data-feather="x-circle"></span> Delete</a>
         </div>

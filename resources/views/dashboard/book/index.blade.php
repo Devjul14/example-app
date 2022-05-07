@@ -6,6 +6,7 @@
   </div>
 
   <div class="table-responsive">
+    <a href="/dashboard/books/create" class="btn btn-info my-2 mx-2"><span data-feather="plus-circle"></span> New Book</a>
     <table class="table table-striped table-sm">
       <thead>
         <tr>

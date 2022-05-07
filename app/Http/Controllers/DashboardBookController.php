@@ -26,7 +26,7 @@ class DashboardBookController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.book.create');
     }
 
     /**

@@ -8,7 +8,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ Request::is('dashboard/books') ? 'active' : '' }}" href="/dashboard/books">
+          <a class="nav-link {{ Request::is('dashboard/books*') ? 'active' : '' }}" href="/dashboard/books">
             <span data-feather="file-text"></span>
             Books
           </a>

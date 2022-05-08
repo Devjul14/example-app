@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class DashboardBookController extends Controller
 {
@@ -26,7 +28,9 @@ class DashboardBookController extends Controller
      */
     public function create()
     {
-        return view('dashboard.book.create');
+        return view('dashboard.book.create', [
+            "categories" => Category::all()
+        ]);
     }
 
     /**
@@ -37,7 +41,18 @@ class DashboardBookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateData = $request->validate([
+            'title' => 'required|max:255',
+            'slug' => 'required|unique:books',
+            'category_id' => 'required',
+            'sinopsis' => 'required'
+        ]);
+
+        $validateData['user_id'] = auth()->user()->id;
+
+        Book::create($validateData);
+
+        return redirect('dashboard/books')->with('success', 'New Book has been added!');
     }
 
     /**
@@ -85,5 +100,11 @@ class DashboardBookController extends Controller
     public function destroy(Book $book)
     {
         //
+    }
+
+    public function checkSlug(Request $request)
+    {
+        $slug = SlugService::createSlug(Book::class, 'slug', $request->title);
+        return response()->json(['slug' => $slug]);
     }
 }

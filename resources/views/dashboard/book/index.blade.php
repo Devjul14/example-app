@@ -5,6 +5,12 @@
     <h1 class="h2">List Books</h1>
   </div>
 
+  @if (session()->has('success'))
+      <div class="alert alert-success">
+        {{ session('success') }}
+      </div>
+  @endif
+
   <div class="table-responsive">
     <a href="/dashboard/books/create" class="btn btn-info my-2 mx-2"><span data-feather="plus-circle"></span> New Book</a>
     <table class="table table-striped table-sm">

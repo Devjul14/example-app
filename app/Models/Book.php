@@ -10,7 +10,7 @@ class Book extends Model
 {
     use HasFactory, Sluggable;
 
-    protected $guarded = ['id'];
+    protected $guarded = ['id', 'user_id'];
     protected $with = ['user', 'category'];
 
     public function scopeFilter($query, array $filters)

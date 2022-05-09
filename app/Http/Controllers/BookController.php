@@ -25,6 +25,8 @@ class BookController extends Controller
             "active" => "book",
             "books" => Book::latest()->filter(request(['search', 'category', 'user']))->paginate(7)->withQueryString()
         ]);
+
+        // return Book::latest()->filter(request(['search', 'category', 'user']))->paginate(7)->withQueryString();
     }
 
     public function show(Book $book)

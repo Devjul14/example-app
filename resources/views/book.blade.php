@@ -14,7 +14,7 @@
             <img src="https://source.unsplash.com/800x400?{{ $book->category->nama }}" alt="{{ $book->category->nama }}" class="img-fluid">
 
             <article class="my-3 fs-5">
-            <p>{{ $book->sinopsis }}</p>
+            <p>{!! $book->sinopsis !!}</p>
             </article>
 
             <a href="/book">Back</a>

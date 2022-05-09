@@ -23,10 +23,10 @@
           @enderror
         </div>
         <div class="mb-3">
-          <label for="categroy" class="form-label">Category</label>
+          <label for="category_id" class="form-label">Category</label>
           <select class="form-select" aria-label="Default select example" name="category_id">
             @foreach ($categories as $category)
-            <option value="{{ $category->id }}">{{ $category->nama }}</option>
+            <option value="{{ $category->id }}  {{ old('category_id') == $category->id ? ' selected' : ' ' }}">{{ $category->nama }}</option>
             @endforeach
           </select>
         </div>

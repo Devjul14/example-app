@@ -52,7 +52,8 @@ Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/categories/{category:nama}', [CategoryController::class, 'show']);
 Route::get('/book', [BookController::class, 'index']);
 Route::get('/book/{book:slug}', [BookController::class, 'show']);
-Route::get('/authors/{author:username}', [AuthorController::class, 'show']);
+
+// Route::get('/book/{author:username}', [AuthorController::class, 'show']);
 // Route::get('/authors/{category:nama}', [CategoryController::class, 'show']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');

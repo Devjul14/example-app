@@ -26,7 +26,7 @@
     <div class="card-body text-center">
       <h3 class="card-title"><a href="/book/{{ $books[0]->slug }}" class="text-decoration-none text-dark">{{ $books[0]->title }}</a></h3>
       <p><small class="text-muted">
-          {{-- By. <a href="/book?user={{ $books[0]->user->username }}" class="text-decoration-none">{{ $books[0]->user->name }}</a> --}}
+          By. <a href="/book?user={{ $books[0]->user->username }}" class="text-decoration-none">{{ $books[0]->user->name }}</a>
         in <a href="/book?category={{ $books[0]->category->slug }}" class="text-decoration-none">{{ $books[0]->category->nama }}</a> {{ $books[0]->created_at->diffForHumans() }}
     </small></p>    
 
@@ -38,19 +38,19 @@
 </div>
 <div class="container">
     <div class="row">
-        @foreach ($books->skip(1) as $item)
-        
+        @foreach ($books->skip(1) as $book)
+
         <div class="col-md-4 mb-3">
             <div class="card" >
-                <img src="https://source.unsplash.com/500x400?{{ $item->category->nama }}" class="card-img-top" alt="{{ $item->category->nama }}">
+                <img src="https://source.unsplash.com/500x400?{{ $book->category->nama }}" class="card-img-top" alt="{{ $book->category->nama }}">
                 <div class="card-body">
-                    <h5 class="card-title">{{ $item->title }}</h5>
+                    <h5 class="card-title">{{ $book->title }}</h5>
                     <p><small class="text-muted">
-                        {{-- By. <a href="/book?user={{ $item->user->username }}" class="text-decoration-none">{{ $item->user->name }}</a>  --}}
-                        in <a href="/book?category={{ $item->category->slug }}" class="text-decoration-none">{{ $item->category->nama }}</a> {{ $item->created_at->diffForHumans() }}
+                        By. <a href="/book?user={{ $book->user->username }}" class="text-decoration-none">{{ $book->user->name }}</a> 
+                        in <a href="/book?category={{ $book->category->slug }}" class="text-decoration-none">{{ $book->category->nama }}</a> {{ $book->created_at->diffForHumans() }}
                   </small></p>    
-                    <p class="card-text">{!! $item->excerpt !!}</p>
-                    <a href="/book/{{ $item->slug }}" class="btn btn-primary">Read More</a>
+                    <p class="card-text">{!! $book->excerpt !!}</p>
+                    <a href="/book/{{ $book->slug }}" class="btn btn-primary">Read More</a>
                 </div>
               </div>
         </div>

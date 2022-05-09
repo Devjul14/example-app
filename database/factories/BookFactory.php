@@ -15,7 +15,7 @@ class BookFactory extends Factory
     {
         return [
             'category_id' => mt_rand(1, 3),
-            'user_id' => mt_rand(1, 7),
+            'user_id' => mt_rand(1, 5),
             'title' => $this->faker->sentence(3),
             'slug' => $this->faker->sentence(3),
             'excerpt' => $this->faker->paragraph(1),

@@ -26,17 +26,16 @@
     <div class="card-body text-center">
       <h3 class="card-title"><a href="/book/{{ $books[0]->slug }}" class="text-decoration-none text-dark">{{ $books[0]->title }}</a></h3>
       <p><small class="text-muted">
-          By. <a href="/book?user={{ $books[0]->user->username }}" class="text-decoration-none">{{ $books[0]->user->name }}</a>
+          {{-- By. <a href="/book?user={{ $books[0]->user->username }}" class="text-decoration-none">{{ $books[0]->user->name }}</a> --}}
         in <a href="/book?category={{ $books[0]->category->slug }}" class="text-decoration-none">{{ $books[0]->category->nama }}</a> {{ $books[0]->created_at->diffForHumans() }}
     </small></p>    
 
-      <p class="card-text">{{ $books[0]->sinopsis }}</p>
+      <p class="card-text">{!! $books[0]->excerpt !!}</p>
 
       <a href="/book/{{ $books[0]->slug }}" class="text-decoration-none btn btn-primary">Read More</a>
     </div>
   </div>
 </div>
-
 <div class="container">
     <div class="row">
         @foreach ($books->skip(1) as $item)
@@ -47,10 +46,10 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $item->title }}</h5>
                     <p><small class="text-muted">
-                        By. <a href="/book?user={{ $item->user->username }}" class="text-decoration-none">{{ $item->user->name }}</a> 
+                        {{-- By. <a href="/book?user={{ $item->user->username }}" class="text-decoration-none">{{ $item->user->name }}</a>  --}}
                         in <a href="/book?category={{ $item->category->slug }}" class="text-decoration-none">{{ $item->category->nama }}</a> {{ $item->created_at->diffForHumans() }}
                   </small></p>    
-                    <p class="card-text">{{ $item->sinopsis }}</p>
+                    <p class="card-text">{!! $item->excerpt !!}</p>
                     <a href="/book/{{ $item->slug }}" class="btn btn-primary">Read More</a>
                 </div>
               </div>

@@ -6,6 +6,7 @@ use App\Models\Book;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Str;
 
 class DashboardBookController extends Controller
 {
@@ -49,6 +50,7 @@ class DashboardBookController extends Controller
         ]);
 
         $validateData['user_id'] = auth()->user()->id;
+        $validateData['excerpt'] = Str::limit(strip_tags($request->sinopsis), 200);
 
         Book::create($validateData);
 

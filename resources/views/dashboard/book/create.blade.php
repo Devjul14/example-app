@@ -38,7 +38,7 @@
           <input id="sinopsis" type="hidden" name="sinopsis">
           <trix-editor input="sinopsis"></trix-editor>
         </div>
-        <button type="submit" class="btn btn-primary">Post</button>
+        <button type="submit" class="btn btn-primary mb-3">Post</button>
     </form>
 </div>
 

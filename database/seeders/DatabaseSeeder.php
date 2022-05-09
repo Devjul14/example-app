@@ -51,7 +51,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         // Pasien::factory(5)->create();
-        Book::factory(50)->create();
+        Book::factory(5)->create();
         Author::factory(5)->create();
     }
 }

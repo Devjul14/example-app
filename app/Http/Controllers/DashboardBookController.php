@@ -101,7 +101,9 @@ class DashboardBookController extends Controller
      */
     public function destroy(Book $book)
     {
-        //
+        Book::destroy($book->id);
+
+        return redirect('dashboard/books')->with('success', 'Book has been deleted!');
     }
 
     public function checkSlug(Request $request)

@@ -22,7 +22,13 @@
 
 @if ($books->count())
 <div class="card mb-4">
-    <img src="https://source.unsplash.com/700x200?{{ $books[0]->category->nama }}" class="card-img-top" alt="{{ $books[0]->category->nama }}">
+            @if ($books[0]->image)
+            <div style="max-height: 350px; overflow:hidden;" align="center">
+                <img src="{{ asset('storage/'. $books[0]->image) }}" alt="{{ $books[0]->category->nama }}" class="img-fluid">
+            </div>                
+            @else
+            <img src="https://source.unsplash.com/700x200?{{ $books[0]->category->nama }}" class="card-img-top" alt="{{ $books[0]->category->nama }}">
+            @endif
     <div class="card-body text-center">
       <h3 class="card-title"><a href="/book/{{ $books[0]->slug }}" class="text-decoration-none text-dark">{{ $books[0]->title }}</a></h3>
       <p><small class="text-muted">
@@ -42,7 +48,11 @@
 
         <div class="col-md-4 mb-3">
             <div class="card" >
-                <img src="https://source.unsplash.com/500x400?{{ $book->category->nama }}" class="card-img-top" alt="{{ $book->category->nama }}">
+              @if ($book->image)
+                  <img src="{{ asset('storage/'. $book->image) }}" alt="{{ $book->category->nama }}" class="img-fluid">
+              @else
+              <img src="https://source.unsplash.com/500x400?{{ $book->category->nama }}" class="card-img-top" alt="{{ $book->category->nama }}">
+              @endif
                 <div class="card-body">
                     <h5 class="card-title">{{ $book->title }}</h5>
                     <p><small class="text-muted">

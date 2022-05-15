@@ -46,8 +46,13 @@ class DashboardBookController extends Controller
             'title' => 'required|max:255',
             'slug' => 'required|unique:books',
             'category_id' => 'required',
+            'image' => 'image|file|max:1024',
             'sinopsis' => 'required'
         ]);
+
+        if ($request->file('image')) {
+            $validateData['image'] = $request->file('image')->store('book-images');
+        }
 
         $validateData['user_id'] = auth()->user()->id;
         $validateData['excerpt'] = Str::limit(strip_tags($request->sinopsis), 200);
@@ -78,7 +83,10 @@ class DashboardBookController extends Controller
      */
     public function edit(Book $book)
     {
-        //
+        return view('dashboard.book.edit', [
+            "book" => $book,
+            "categories" => Category::all()
+        ]);
     }
 
     /**
@@ -90,7 +98,25 @@ class DashboardBookController extends Controller
      */
     public function update(Request $request, Book $book)
     {
-        //
+        $rules = [
+            'title' => 'required|max:255',
+            'category_id' => 'required',
+            'sinopsis' => 'required'
+        ];
+
+        if ($request->slug != $book->slug) {
+            $rules['slug'] = 'required|unique:books';
+        }
+
+        $validateData = $request->validate($rules);
+
+        $validateData['user_id'] = auth()->user()->id;
+        $validateData['excerpt'] = Str::limit(strip_tags($request->sinopsis), 200);
+
+        Book::where('id', $book->id)
+            ->update($validateData);
+
+        return redirect('dashboard/books')->with('success', 'Book has been updated!');
     }
 
     /**

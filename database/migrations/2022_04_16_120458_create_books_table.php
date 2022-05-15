@@ -21,6 +21,7 @@ class CreateBooksTable extends Migration
             $table->string('slug');
             $table->text('excerpt');
             $table->text('sinopsis');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

@@ -6,6 +6,7 @@ use App\Models\Book;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class DashboardBookController extends Controller
@@ -101,6 +102,7 @@ class DashboardBookController extends Controller
         $rules = [
             'title' => 'required|max:255',
             'category_id' => 'required',
+            'image' => 'image|file|max:1024',
             'sinopsis' => 'required'
         ];
 
@@ -109,6 +111,13 @@ class DashboardBookController extends Controller
         }
 
         $validateData = $request->validate($rules);
+
+        if ($request->file('image')) {
+            if ($book->image) {
+                Storage::delete($book->image);
+            }
+            $validateData['image'] = $request->file('image')->store('book-images');
+        }
 
         $validateData['user_id'] = auth()->user()->id;
         $validateData['excerpt'] = Str::limit(strip_tags($request->sinopsis), 200);
@@ -127,6 +136,10 @@ class DashboardBookController extends Controller
      */
     public function destroy(Book $book)
     {
+        if ($book->image) {
+            Storage::delete($book->image);
+        }
+        
         Book::destroy($book->id);
 
         return redirect('dashboard/books')->with('success', 'Book has been deleted!');

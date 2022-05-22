@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminCategoryController;
 use App\Models\Book;
 use App\Models\Category;
 use App\Models\Pelayanan;
@@ -69,3 +70,4 @@ Route::get('/dashboard', function () {
 
 Route::get('/dashboard/books/checkSlug', [DashboardBookController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/books', DashboardBookController::class)->middleware('auth');
+Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('auth');

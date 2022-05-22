@@ -139,7 +139,7 @@ class DashboardBookController extends Controller
         if ($book->image) {
             Storage::delete($book->image);
         }
-        
+
         Book::destroy($book->id);
 
         return redirect('dashboard/books')->with('success', 'Book has been deleted!');

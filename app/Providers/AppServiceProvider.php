@@ -31,7 +31,7 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
 
         Gate::define('admin', function (User $user) {
-            return $user->username === 'julia-dev';
+            return $user->is_admin;
         });
     }
 }

@@ -70,4 +70,4 @@ Route::get('/dashboard', function () {
 
 Route::get('/dashboard/books/checkSlug', [DashboardBookController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/books', DashboardBookController::class)->middleware('auth');
-Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('auth');
+Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('admin');

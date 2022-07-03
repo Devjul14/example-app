@@ -55,6 +55,7 @@
 </div>
 
 <script>
+  //ini function untuk slug-otomatis
   const title = document.querySelector('#title');
   const slug = document.querySelector('#slug');
 
@@ -64,6 +65,7 @@
     .then(data => slug.value = data.slug)
   });
 
+  //previewimage
   function previewImage() {
     const image = document.querySelector('#image');
     const imgPreview = document.querySelector('.img-preview');

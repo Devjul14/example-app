@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class AdminCategoryController extends Controller
 {
@@ -26,7 +27,7 @@ class AdminCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.categories.create');
     }
 
     /**
@@ -37,7 +38,20 @@ class AdminCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $validateData = $request->validate([
+            'nama' => 'required',
+            'slug' => 'required|unique:categories',
+            'image' => 'image|file|max:1024',
+        ]);
+
+        if ($request->file('image')) {
+            $validateData['image'] = $request->file('image')->store('category-images');
+        }
+
+        Category::create($validateData);
+
+        return redirect('dashboard/categories')->with('success', 'New category has been added!');
     }
 
     /**

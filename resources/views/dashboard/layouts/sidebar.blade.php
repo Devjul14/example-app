@@ -27,6 +27,14 @@
           </a>
         </li>          
       </ul>  
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" href="/testapi">
+            <span data-feather="link"></span>
+            API
+          </a>
+        </li>          
+      </ul>  
       @endcan
       
 

@@ -41,7 +41,6 @@ class AdminCategoryController extends Controller
         // dd($request);
         $validateData = $request->validate([
             'nama' => 'required',
-            'slug' => 'required|unique:categories',
             'image' => 'image|file|max:1024',
         ]);
 
@@ -49,6 +48,8 @@ class AdminCategoryController extends Controller
             $validateData['image'] = $request->file('image')->store('category-images');
         }
 
+        $slug = $request->nama . "-" . "slug";
+        $validateData['slug'] = $slug;
         Category::create($validateData);
 
         return redirect('dashboard/categories')->with('success', 'New category has been added!');
@@ -98,4 +99,12 @@ class AdminCategoryController extends Controller
     {
         //
     }
+
+    // //function cekslug 
+    // public function checkSlug(Request $request)
+    // {
+    //     // dd($request);
+    //     $slug = SlugService::createSlug(Category::class, 'slug', $request->nama);
+    //     return response()->json(['slug' => $slug]);
+    // }
 }

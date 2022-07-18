@@ -13,7 +13,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PelayananController;
-
+use App\Http\Controllers\Testapicontroller;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +65,7 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
+// Dashboard
 Route::get('/dashboard', function () {
     return view('dashboard.index');
 })->middleware('auth');
@@ -71,3 +73,5 @@ Route::get('/dashboard', function () {
 Route::get('/dashboard/books/checkSlug', [DashboardBookController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/books', DashboardBookController::class)->middleware('auth');
 Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('admin');
+Route::get('/testapi', [TestapiController::class, 'index'])->middleware('admin');
+// end dashboard

@@ -16,13 +16,6 @@
           @enderror
         </div>
         <div class="mb-3">
-          <label for="slug" class="form-label @error('slug') is-invalid @enderror">Slug</label>
-          <input type="text" class="form-control" id="slug" name="slug" value="{{ old('slug') }}" required>
-          @error('slug')
-              <div class="invalid-feedback">{{ $message }}</div>
-          @enderror
-        </div>
-        <div class="mb-3">
           <label for="image" class="form-label @error('image') is-invalid @enderror">Category Image</label>
           <img class="img-preview img-fluid mb-3 col-sm-5">
           <input class="form-control" type="file" id="image" name="image" onchange="previewImage()">
@@ -35,16 +28,6 @@
 </div>
 
 <script>
-   //ini function untuk slug-otomatis
-    const title = document.querySelector('#title');
-    const slug = document.querySelector('#slug');
-
-    title.addEventListener('change', function(){
-      fetch('/dashboard/books/checkSlug?title=' + title.value)
-      .then(response => response.json())
-      .then(data => slug.value = data.slug)
-    });
-
     //previewimage
   function previewImage() {
     const image = document.querySelector('#image');

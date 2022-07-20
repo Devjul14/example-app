@@ -14,7 +14,7 @@
                 <div class="ms-2 me-auto">
                   <span class="badge bg-primary rounded-pill"> {{ $uniqueCount[$item['userId']] }} Post</span>
                 </div>
-                <a href="" class="btn btn-sm float-right btn-success">See More</a>
+                <a href="/testapi/{{ $item['userId'] }}" class="btn btn-sm float-right btn-success">See More</a>
               </li>
             @endforeach
         </ul>

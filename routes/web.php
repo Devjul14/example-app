@@ -73,5 +73,8 @@ Route::get('/dashboard', function () {
 Route::get('/dashboard/books/checkSlug', [DashboardBookController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/books', DashboardBookController::class)->middleware('auth');
 Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('admin');
-Route::get('/testapi', [TestapiController::class, 'index'])->middleware('admin');
 // end dashboard
+
+//example api
+Route::get('/testapi', [TestapiController::class, 'index'])->middleware('admin');
+Route::get('/testapi/{id}', [TestapiController::class, 'show'])->middleware('admin');

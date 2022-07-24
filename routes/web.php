@@ -79,3 +79,4 @@ Route::resource('/dashboard/categories', AdminCategoryController::class)->except
 Route::get('/testapi', [TestapiController::class, 'index'])->middleware('admin');
 Route::get('/testapi/{id}', [TestapiController::class, 'show'])->middleware('admin');
 Route::get('/testapi/{id}/edit', [TestapiController::class, 'edit'])->middleware('admin');
+Route::post('/testapi/{id}/update', [TestapiController::class, 'update'])->middleware('admin');

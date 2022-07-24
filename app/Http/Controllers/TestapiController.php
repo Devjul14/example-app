@@ -34,14 +34,25 @@ class Testapicontroller extends Controller
         ]);
     }
 
-    public function edit(Apitest $apitest)
+    public function edit($id)
     {
         return view('dashboard.api.update', [
-            "apitest" => $apitest,
+            'id' => $id
         ]);
     }
 
-    public function update(Request $request, Apitest $apitest)
+    public function update(Request $request)
     {
+        // dd($request);
+        $title = $request->title;
+        $body = $request->body;
+        $id = $request->id;
+
+        $response = Http::put('https://jsonplaceholder.typicode.com/posts/' . $id, [
+            'title' => $title,
+            'body' => $body
+        ]);
+
+        return $response->json();
     }
 }

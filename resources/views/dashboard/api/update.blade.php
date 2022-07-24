@@ -6,20 +6,20 @@
   </div>
 
 <div class="col-lg-6">
-    <form action="" method="post" enctype="multipart/form-data">
-      @method('put')
+    <form action="/testapi/{{ $id }}/update" method="post" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
           <label for="title" class="form-label @error('title') is-invalid @enderror ">Title</label>
+          <input type="hidden" class="form-control" id="id" name="id" value="{{ $id }}">
           <input type="text" class="form-control" id="title" name="title" value="" autofocus required>
           @error('title')
               <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
         <div class="mb-3">
-          <label for="slug" class="form-label @error('slug') is-invalid @enderror">Slug</label>
-          <input type="text" class="form-control" id="slug" name="slug" value="" required>
-          @error('slug')
+          <label for="body" class="form-label @error('body') is-invalid @enderror">Body</label>
+          <input type="text" class="form-control" id="body" name="body" value="" required>
+          @error('body')
               <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>

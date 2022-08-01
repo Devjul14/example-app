@@ -48,11 +48,20 @@ class Testapicontroller extends Controller
         $body = $request->body;
         $id = $request->id;
 
-        $response = Http::put('https://jsonplaceholder.typicode.com/posts/' . $id, [
+        $posts = Http::put('https://jsonplaceholder.typicode.com/posts/' . $id, [
             'title' => $title,
             'body' => $body
         ]);
 
-        return $response->json();
+        return $posts->json();
+        // return redirect('testapi/' . $id)->with('success', 'Api has been updated!');
+        // coba pake return vie kaya show
+    }
+
+    public function delete($id)
+    {
+        $posts = Http::delete('https://jsonplaceholder.typicode.com/posts/' . $id);
+        // return $posts->json();
+        return redirect('testapi/' . $id)->with('success', 'Api has been updated!');
     }
 }

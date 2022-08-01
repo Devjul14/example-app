@@ -7,6 +7,7 @@
       <h5 class="card-title text-center">{{ $item['title'] }}</h5>
       <p class="card-text">{{ $item['body'] }}</p>
       <a href="/testapi/{{ $item['id']}}/edit" class="btn btn-sm bg-warning center"><span data-feather="edit"></span></a>
+      <a href="/testapi/delete/{{ $item['id']}}" class="btn btn-sm bg-danger center"><span data-feather="delete"></span></a>
       @endforeach
     </div>
   </div>       

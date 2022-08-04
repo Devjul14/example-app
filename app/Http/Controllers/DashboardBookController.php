@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\Category;
-use Illuminate\Http\Request;
-use \Cviebrock\EloquentSluggable\Services\SlugService;
-use Illuminate\Support\Facades\Storage;
+use App\Exports\BookExport;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Storage;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class DashboardBookController extends Controller
 {
@@ -149,5 +151,10 @@ class DashboardBookController extends Controller
     {
         $slug = SlugService::createSlug(Book::class, 'slug', $request->title);
         return response()->json(['slug' => $slug]);
+    }
+
+    public function excel()
+    {
+        return Excel::download(new BookExport, 'books.xlsx');
     }
 }

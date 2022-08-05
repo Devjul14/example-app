@@ -74,6 +74,7 @@ Route::resource('/dashboard/books', DashboardBookController::class)->middleware(
 Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('admin');
 Route::get('/dashboard/books/checkSlug', [DashboardBookController::class, 'checkSlug'])->middleware('auth');
 Route::get('/dashboard/book/excel', [DashboardBookController::class, 'excel'])->middleware('auth');
+Route::get('/dashboard/book/excel2', [DashboardBookController::class, 'excel2'])->middleware('auth');
 // end dashboard
 
 //example api

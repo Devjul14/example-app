@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Exports\BookExport;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Exports\ReportExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Storage;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
@@ -156,5 +157,22 @@ class DashboardBookController extends Controller
     public function excel()
     {
         return Excel::download(new BookExport, 'books.xlsx');
+    }
+
+    public function excel2()
+    {
+        $data = [
+            'data' => [
+                'nama' => 'julia',
+                'alamat' => 'cirebon'
+            ],
+            [
+                'nama' => 'julia',
+                'alamat' => 'cirebon'
+            ]
+        ];
+        $export = new ReportExport($data['data']);
+
+        return Excel::download($export, 'report.xlsx');
     }
 }

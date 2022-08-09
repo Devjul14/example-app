@@ -153,26 +153,4 @@ class DashboardBookController extends Controller
         $slug = SlugService::createSlug(Book::class, 'slug', $request->title);
         return response()->json(['slug' => $slug]);
     }
-
-    public function excel()
-    {
-        return Excel::download(new BookExport, 'books.xlsx');
-    }
-
-    public function excel2()
-    {
-        $data = [
-            'data' => [
-                'nama' => 'julia',
-                'alamat' => 'cirebon'
-            ],
-            [
-                'nama' => 'julia',
-                'alamat' => 'cirebon'
-            ]
-        ];
-        $export = new ReportExport($data['data']);
-
-        return Excel::download($export, 'report.xlsx');
-    }
 }

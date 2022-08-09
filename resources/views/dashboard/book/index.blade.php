@@ -13,8 +13,8 @@
 
   <div class="table-responsive">
     <a href="/dashboard/books/create" class="btn btn-info my-2 mx-2"><span data-feather="plus-circle"></span> New Book</a>
-    <a href="/dashboard/book/excel" class="btn btn-success my-2 mx-2"><span data-feather="file-text"></span> Export Excel</a>
-    <a href="/dashboard/book/excel2" class="btn btn-success my-2 mx-2"><span data-feather="file-text"></span> Export Excel Multiple</a>
+    <a href="/export/excel" class="btn btn-success my-2 mx-2"><span data-feather="file-text"></span> Export Excel</a>
+    {{-- <a href="/dashboard/book/excel2" class="btn btn-success my-2 mx-2"><span data-feather="file-text"></span> Export Excel Multiple</a> --}}
     <table class="table table-striped table-sm">
       <thead>
         <tr>

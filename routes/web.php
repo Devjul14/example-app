@@ -11,6 +11,7 @@ use App\Http\Controllers\DashboardBookController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ExportController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PelayananController;
 use App\Http\Controllers\Testapicontroller;
@@ -73,7 +74,7 @@ Route::get('/dashboard', function () {
 Route::resource('/dashboard/books', DashboardBookController::class)->middleware('auth');
 Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('admin');
 Route::get('/dashboard/books/checkSlug', [DashboardBookController::class, 'checkSlug'])->middleware('auth');
-Route::get('/dashboard/book/excel', [DashboardBookController::class, 'excel'])->middleware('auth');
+Route::get('/export/excel', [ExportController::class, 'index'])->middleware('admin');
 Route::get('/dashboard/book/excel2', [DashboardBookController::class, 'excel2'])->middleware('auth');
 // end dashboard
 

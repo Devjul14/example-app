@@ -15,6 +15,6 @@ class ExportController extends Controller
     }
     public function index(Excel $excel)
     {
-        return $this->excel->download(new UserExport, 'users.pdf', Excel::DOMPDF);
+        return $this->excel->download(new UserExport, 'users.xlsx');
     }
 }

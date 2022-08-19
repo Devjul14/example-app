@@ -66,10 +66,10 @@ class UserExport implements
                         'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_GRADIENT_LINEAR,
                         'rotation' => 90,
                         'startColor' => [
-                            'argb' => 'F3B816',
+                            'argb' => '00CC00',
                         ],
                         'endColor' => [
-                            'argb' => 'FAEBC0',
+                            'argb' => '66FF66',
                         ],
                     ],
                 ]);

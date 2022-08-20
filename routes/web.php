@@ -11,6 +11,7 @@ use App\Http\Controllers\DashboardBookController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\EmailController;
 use App\Http\Controllers\ExportController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PelayananController;
@@ -84,3 +85,7 @@ Route::get('/testapi/{id}', [TestapiController::class, 'show'])->middleware('adm
 Route::get('/testapi/{id}/edit', [TestapiController::class, 'edit'])->middleware('admin');
 Route::post('/testapi/{id}/update', [TestapiController::class, 'update'])->middleware('admin');
 Route::get('/testapi/delete/{id}', [TestapiController::class, 'delete'])->middleware('admin');
+// end example api
+
+//example email
+Route::get('/email', [EmailController::class, 'notif'])->middleware('admin');

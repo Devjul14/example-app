@@ -3,9 +3,11 @@
 namespace App\Console\Commands;
 
 use Log;
+use App\Mail\Notif;
 use App\Models\Book;
 use App\Models\User;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Artisan;
 
 class DemoCron extends Command
@@ -41,15 +43,6 @@ class DemoCron extends Command
      */
     public function handle()
     {
-        $addUser = User::create([
-            'name' => 'test',
-            'email' => 'example.test@gmail.com',
-            'username' => 'julia-test',
-            'password' => 'password'
-        ]);
-        if ($addUser) {
-            $success = "Succes clear chace";
-            echo $success;
-        }
+        Mail::to('eka47577@gmail.com')->send(new Notif());
     }
 }

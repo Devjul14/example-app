@@ -6,6 +6,7 @@ use Log;
 use App\Mail\Notif;
 use App\Models\Book;
 use App\Models\User;
+use App\Mail\GmailTest;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Artisan;
@@ -43,6 +44,11 @@ class DemoCron extends Command
      */
     public function handle()
     {
-        Mail::to('eka47577@gmail.com')->send(new Notif());
+        $content = [
+            'title' => 'test gmail from eka47577',
+            'body' => 'test send email from laravel via gmail'
+        ];
+
+        Mail::to('dhonidoni03@gmail.com')->send(new GmailTest($content));
     }
 }

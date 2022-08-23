@@ -1,21 +1,22 @@
 <?php
 
-use App\Http\Controllers\AdminCategoryController;
 use App\Models\Book;
 use App\Models\Category;
 use App\Models\Pelayanan;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\DashboardBookController;
-use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\GmailController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\ExportController;
+use App\Http\Controllers\Testapicontroller;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PelayananController;
-use App\Http\Controllers\Testapicontroller;
+use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\DashboardBookController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -89,3 +90,4 @@ Route::get('/testapi/delete/{id}', [TestapiController::class, 'delete'])->middle
 
 //example email
 Route::get('/email', [EmailController::class, 'notif'])->middleware('admin');
+Route::get('/gmail', [GmailController::class, 'sendEmail'])->middleware('admin');

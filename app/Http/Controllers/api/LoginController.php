@@ -18,5 +18,7 @@ class LoginController extends Controller
         if (!Auth::attempt($credentials)) {
             return response(['message' => 'Invalid Login!']);
         }
+
+        $token = Auth::user()->createToken('UserToken')->accessToken;
     }
 }

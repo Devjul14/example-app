@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\api;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -19,6 +20,14 @@ class LoginController extends Controller
             return response(['message' => 'Invalid Login!']);
         }
 
-        $token = Auth::user()->createToken('UserToken')->accessToken;
+        $user = User::find(1);
+
+        // Creating a token without scopes...
+        $token = $user->createToken('testToken')->accessToken;
+
+        return response([
+            'user' => Auth::user(),
+            'access_token' => $token
+        ]);
     }
 }

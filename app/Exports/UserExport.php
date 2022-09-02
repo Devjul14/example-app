@@ -16,13 +16,15 @@ use Maatwebsite\Excel\Concerns\WithHeadings;
 use Illuminate\Contracts\Support\Responsable;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+use Maatwebsite\Excel\Concerns\WithTitle;
 
 class UserExport implements
     FromCollection,
     ShouldAutoSize,
     WithMapping,
     WithHeadings,
-    WithEvents
+    WithEvents,
+    WithTitle
 {
     use Exportable;
     /**
@@ -52,6 +54,11 @@ class UserExport implements
             'Email',
             'Created_at'
         ];
+    }
+
+    public function title(): string
+    {
+        return '#';
     }
 
     public function registerEvents(): array

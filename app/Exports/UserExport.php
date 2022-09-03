@@ -58,7 +58,7 @@ class UserExport implements
 
     public function title(): string
     {
-        return '#';
+        return 'Users';
     }
 
     public function registerEvents(): array

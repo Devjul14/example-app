@@ -28,6 +28,7 @@ class LoginController extends Controller
             200
         ]);
     }
+
     public function login(Request $request)
     {
         $credentials = $request->validate([

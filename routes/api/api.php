@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::prefix('/test')->group(function () {
+    Route::post('/register', 'App\Http\Controllers\api\LoginController@register');
     Route::post('/login', 'App\Http\Controllers\api\LoginController@login');
     Route::middleware('auth:api')->get('/all', 'App\Http\Controllers\api\UserController@index');
 });

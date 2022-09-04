@@ -9,6 +9,25 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
+    public function register(Request $request)
+    {
+        $register = $request->validate([
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+
+        $user = User::create([
+            'email' => $request->email,
+            'password' => bcrypt($request->password)
+        ]);
+
+        $token = $user->createToken('TestPassportApi')->accessToken();
+
+        return response()->json([
+            'token' => $token,
+            200
+        ]);
+    }
     public function login(Request $request)
     {
         $credentials = $request->validate([

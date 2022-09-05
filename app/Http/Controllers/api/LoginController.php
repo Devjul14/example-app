@@ -12,16 +12,20 @@ class LoginController extends Controller
     public function register(Request $request)
     {
         $register = $request->validate([
+            'name' => 'required',
             'email' => 'required',
+            'username' => 'required',
             'password' => 'required'
         ]);
 
         $user = User::create([
+            'name' => $request->name,
             'email' => $request->email,
+            'username' => $request->username,
             'password' => bcrypt($request->password)
         ]);
 
-        $token = $user->createToken('TestPassportApi')->accessToken();
+        $token = $user->createToken('TestPassportApi')->accessToken;
 
         return response()->json([
             'token' => $token,

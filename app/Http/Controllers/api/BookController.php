@@ -3,19 +3,20 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\Book;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class BookController extends Controller
 {
     public function index()
     {
-        $user = User::all();
+
+        $books = Book::all()->toArray();
 
         return response()->json([
-            "success" => true,
-            "message" => "Product List",
-            "data" => $user
+            'success' => true,
+            'message' => 'Book List',
+            'data' => $books
         ]);
     }
 }

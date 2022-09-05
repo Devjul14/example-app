@@ -20,8 +20,14 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::prefix('/test')->group(function () {
-    Route::post('/register', 'App\Http\Controllers\api\LoginController@register');
-    Route::post('/login', 'App\Http\Controllers\api\LoginController@login');
-    Route::middleware('auth:api')->get('/all', 'App\Http\Controllers\api\UserController@index');
+Route::post('/register', 'App\Http\Controllers\api\LoginController@register');
+Route::post('/login', 'App\Http\Controllers\api\LoginController@login');
+// Route::prefix('/test')->group(function () {
+//     Route::middleware('auth:api')->get('/all', 'App\Http\Controllers\api\UserController@index');
+// });
+
+Route::middleware('auth:api')->group(function () {
+    Route::get('get-user', 'App\Http\Controllers\api\UserController@index');
+
+    Route::resource('books', 'App\Http\Controllers\api\BookController');
 });

@@ -19,4 +19,17 @@ class BookController extends Controller
             'data' => $books
         ]);
     }
+
+    public function show($id)
+    {
+        $book = Book::find($id);
+        if (is_null($book)) {
+            return $this->sendError('book not found.');
+        }
+        return response()->json([
+            "success" => true,
+            "message" => "book retrieved successfully.",
+            "data" => $book
+        ]);
+    }
 }

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\api;
 
-use App\Http\Controllers\Controller;
 use App\Models\Book;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Validation\Validator;
 
 class BookController extends Controller
 {
@@ -17,6 +18,24 @@ class BookController extends Controller
             'success' => true,
             'message' => 'Book List',
             'data' => $books
+        ]);
+    }
+
+    public function store(Request $request)
+    {
+        // $input = $request->all();
+        $books = $request->validate([
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+        if ($books) {
+            return $this->sendError('Validation Error.');
+        }
+        $create_book = Book::create($books);
+        return response()->json([
+            "success" => true,
+            "message" => "Book created successfully.",
+            "data" => $create_book
         ]);
     }
 

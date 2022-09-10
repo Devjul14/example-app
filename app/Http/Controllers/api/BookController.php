@@ -25,18 +25,22 @@ class BookController extends Controller
     {
         // $input = $request->all();
         $books = $request->validate([
-            'email' => 'required',
-            'password' => 'required'
+            'category_id' => 'required',
+            'user_id' => 'required',
+            'title' => 'required',
+            'slug' => 'required',
+            'excerpt' => 'required',
+            'sinopsis' => 'required',
+            'image' => 'required'
         ]);
         if ($books) {
-            return $this->sendError('Validation Error.');
+            $create_book = Book::create($books);
+            return response()->json([
+                "success" => true,
+                "message" => "Book created successfully.",
+                "data" => $create_book
+            ]);
         }
-        $create_book = Book::create($books);
-        return response()->json([
-            "success" => true,
-            "message" => "Book created successfully.",
-            "data" => $create_book
-        ]);
     }
 
     public function show($id)

@@ -30,4 +30,5 @@ Route::middleware('auth:api')->group(function () {
     Route::get('get-user', 'App\Http\Controllers\api\UserController@index');
 
     Route::resource('books', 'App\Http\Controllers\api\BookController');
+    // Route::put('/update/{id}', 'App\Http\Controllers\api\BookController');
 });
